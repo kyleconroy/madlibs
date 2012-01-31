@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Author / Time</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th><a href='libs/{{ lib['id'] }}'>{{ lib['id'] }}</a></th>
+          <th>{{ lib['author'] }}<br>{{ lib['datetime'] }}</th>
+          <th>{{ lib_info[lib['id']] }}</th>
+        </tr>
+      </tbody>
+
+    </table>
+
+{% endblock content %}

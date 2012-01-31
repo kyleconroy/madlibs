@@ -1,0 +1,9 @@
+# Madlibs
+config.py
+*.db
+
+# Python
+*.pyc
+
+# Vim
+*.swp

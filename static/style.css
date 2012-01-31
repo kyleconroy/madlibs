@@ -1,0 +1,36 @@
+#header {
+  margin-bottom: 10px;
+}
+
+#content {
+  /* border: 1px solid black; */ 
+}
+
+#startlib_button {
+  width: 400px;
+  display: block;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.clearfix {
+  clear: both;
+}
+
+#logo {
+  margin: auto;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+#toptext {
+  margin-bottom: 0px;
+}
+
+.button_margin {
+  margin-bottom: 6px;
+}

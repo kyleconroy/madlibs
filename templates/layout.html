@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <title>Mad Libs with a Twilio Twist</title>
+  <link href="/static/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/static/style.css" media="screen" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="/static/favicon.ico"/>
+{% block css %}
+{% endblock css %}
+</head>
+<body>
+
+  <div id="header" class="center">
+    <a href="/"><img id='logo' src='/static/logo.png' alt='logo'/></a><h1 id="toptext">Twilio Mad Libs</h1>
+    <h6>Text 'register USERNAME' to (415) 799-4505 to join. Text 'unregister' to quit.</h6>
+  </div>
+
+  <div id="content" class="container">
+    
+{% block content %}
+
+{% endblock content %}
+ 
+  </div>
+
+{% block javascript %}
+{% endblock javascript %}
+  
+</body>
+</html>
+

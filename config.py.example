@@ -1,0 +1,25 @@
+"""
+This is an example configuration file. All fields are required
+to run Twilio Mad libs unless otherwise specified. This file should
+be called 'config.py' in production.
+"""
+# app.debug is set to this. Always False in production.
+DEBUG = True
+
+# Twilio Account SID/Auth Token
+TWILIO_ACCOUNT_SID = "AC123"
+TWILIO_AUTH_TOKEN = "TOKEN"
+
+# Twilio Phone Numbers - two are required for this app.
+#   One for registering users, one for parsing texts for libs.
+TWILIO_REG_NUMBER = '+18001236789'
+TWILIO_LIB_NUMBER = '+18003214321'
+
+# Database file location. sqlite3 is the db.
+DB_NAME = 'madlibs.db'
+
+# Flask secret key for sessions and protecting your users
+# Best way to generate is import os; os.urandom(24)
+SECRET_KEY = 'some random secret key'
+
+

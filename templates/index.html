@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <!--<a href="startlib"><button id="startlib_button" class="btn primary">Start a new lib!</button></a>-->
+{% if error_msg %}
+<div class='alert-message warning'>
+  <a class="close" href="#">×</a>
+  <p>{{ error_msg }}</p>
+</div>
+{% endif %}
+{% if success_msg %}
+<div class='alert-message success'>
+  <a class="close" href="#">×</a>
+  <p>{{ success_msg }}</p>
+</div>
+{% endif %}
+
+    <form action='/' method='POST'>
+      <div class="clearfix">
+        <label for="author">Who are you?</label>
+        <div class="input">
+          <select name="author" id="author">
+{% for user in users %}
+            <option>{{user['name']}}</option>
+{% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <label for="lib_recipe">Your lib recipe here!</label>
+        <div class="input">
+          <textarea class="xxlarge" id="lib_recipe" name="lib_recipe" rows="5">Once there was a {adjective} Twilion named {your favorite Twilion}...</textarea>
+        </div>
+      </div>
+      
+      <div class="clearfix">
+        <label for="participants">Who gets to play this lib?</label>
+        <div class="input">
+          <input class="xlarge" id="participants" name="participants" size="50" type="text" readonly></input>
+          <br><br>
+{% for user in users %}
+          <button class="btn button_margin {% if not user['current_entry'] %}info{% endif %}" type="button" onclick="addUser('{{user['name']}}'); $(this).attr('disabled', 'disabled');" {% if user['current_entry'] %}disabled{% endif %}>{{user['name']}}</button>
+{% endfor %}
+        </div>
+      </div>
+
+      <button type="submit" class="btn primary">Submit lib!</button>      
+    </form>
+    <h2 class="center">Past Libs</h2>
+
+<!-- <a href="#" rel="twipsy" data-original-title="Some title text">you probably</a> -->
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Author / Time</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+
+      <tbody>
+{% for lib in past_libs %}
+        <tr>
+          <th><a href='libs/{{ lib['id'] }}'>{{ lib['id'] }}</a></th>
+          <th>{{ lib['author'] }}<br>{{ lib['datetime'] }}</th>
+          <th>{{ lib_info[lib['id']] }}</th>
+        </tr>
+{% endfor %}
+      </tbody>
+
+    </table>
+{% endblock content %}
+
+
+{% block javascript %}
+  <script src="static/jquery-1.7.1.min.js"></script>
+  <script>
+    function addUser(user) {
+      $("#participants").val($("#participants").val() + user + ' ');
+      return 'yes';
+    }
+  </script>
+
+{% endblock javascript  %}
